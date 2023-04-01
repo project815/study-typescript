@@ -20,6 +20,11 @@ function add(num1:number, num2:number, isShow:boolean, pharse:string)
 
 const number1 = 3;
 const number2 = 3.4;
+let number3: number;
+number3 = 4;
+// number3 = "qe";
+let number4 = "er";
+// number4 = 1;
 const printResult = true;
 const resultPhrase = "Result is : ";
 
