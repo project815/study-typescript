@@ -1,0 +1,8 @@
+console.log("왜 안되냐?!?!?");
+console.log("왜 안되냐?!?!?");
+console.log("왜 안되냐?!?!?");
+console.log("왜 안되냐?!?!?");
+console.log("왜 안되냐?!?!?");
+console.log("왜 안되냐?!?!?");
+console.log("왜 안되냐?!?!?");
+console.log("왜 안되냐?!?!?");
