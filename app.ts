@@ -1,13 +1,33 @@
+enum Role{ADMIN, READ_ONLY, AUTHOR};
+//열거형 : 숫자 혹은 문자 할당 가능 
+//사용자가 보기 표현식으로 보여주기 위함.
+
 const person
-// :{
-//     name: string;
-//     age: number;
-// }
+:{
+    name: string;
+    age: number;
+    hobbies: string[]; //위 세 가지는 데이터 타입을 추론할 수 있음
+    role:[number, string];
+    auth: any;
+}
 = {
     name: "Maximilian",
     age: 30,
-    hobbies: ["Sports", "Cooking"]
+    hobbies: ["Sports", "Cooking"],
+    role: [2, 'author'],
+    auth: Role.ADMIN
 };
+
+person.role.push('admin');//튜플에서 예외적으로 가능
+person.role.push(1);
+person.role.push(2);
+console.log(person.role);
+person.role.pop();
+person.role.pop();
+person.role.pop();
+// person.role[1] = 10; //string타입으로 명시되었음 컴파일 과정에서 에러
+console.log(person.role);
+//
 
 let favoriteActiities: any[]; //any 타입은 문자, 숫자 어느 것이든 혼용가능
 favoriteActiities = ["Sports", 1]
@@ -19,7 +39,11 @@ for(const hobby of person.hobbies)
     // console.log(hobby.map()); // map 속성에는 문자열이 존재하지 않는다.!!!Error!!!
 }
 
-for(const hobby of favoriteActiities)
+if(person.auth === Role.ADMIN)
 {
-    console.log(hobby.toUpperCase()); // 숫자일의 경우 런타임 오류 발생함.
+    console.log("person ADMIN");
 }
+// for(const hobby of favoriteActiities)
+// {
+//     console.log(hobby.toUpperCase()); // 숫자일의 경우 런타임 오류 발생함.
+// }
