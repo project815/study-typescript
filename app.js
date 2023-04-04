@@ -1,48 +1,18 @@
-function add(n1, n2) {
-    return n1 + n2;
+var userInput;
+var userName;
+userInput = 5;
+userInput = "Max";
+if (typeof userInput === "string") {
+    userName = userInput;
 }
-function PrintResult(num) {
-    //void 와 undefined 차이점.
-    //자바스크립트에서는 반환타입이 없어서 이런 상황에 대한 명칭은 없지만
-    //타입스크립트는 void타입을 가지고 있다.
-    //:undefined를 쓰면 에러가 난다 이것은 함수가 undefined를 반환하는 것을 허용하지 않기 때문!
-    //:void 반환하는 것이 없다는 것을 의미
-    console.log(num);
-    // return;
+//Known타입은 다른 타입에 할당하기 위해서는 타입체킹이 필요하다.
+//any를 사용하면 타입체킹 없이 어디든 할당된다.
+function generateError(message, code) {
+    //에러객체를 생성하여 넘기는 유틸리티 함수.
+    //자바스크립트와 마찬가지로 객체를 throw로 넘길 수 잇음.
+    throw { message: message, errorCode: code };
 }
-function addAndHandle(n1, n2, cb) {
-    var result = n1 + n2;
-    var n23 = cb(result);
-    console.log(n23);
-}
-PrintResult(add(10, 20));
-console.log(add(20, 30));
-console.log(PrintResult(add(20, 30))); // return 값이 없는 void 형을 반환하는 함수는 consolo.log -> undefined
-var someValue; //undefined타입 유효한 타입으로 존재
-///---
-var combineValues;
-var isdd = true;
-combineValues = add;
-//combineValues = 4; 
-//함수 타입이라는 것을 명시하지 않으면 런타임 에러 발생.
-//combineValues = PrintResult;
-//함수 타입으로 정의 되어있어서 컴파일 상 오류가 발생하지 않는다.
-//그러나 매개변수에 차이가 있어 제대로 작동하지 않음.
-//(a:number, b:number)=> number 함수타입을 정확히 명시하는 것이 좋다.
-console.log(combineValues(3, 3));
-var n21 = 23;
-addAndHandle(10, 20, function (result) {
-    console.log(23);
-    return "sdaf";
-});
-//콜백 함수는 자신이 전달되는 인수가 반환 값을 기대하지 않는 경우에도 값을 반환할 수 있음.
-var testFunction;
-var n1 = 23;
-function sendRequest(data, cb) {
-    // ... sending a request with "data"
-    return cb({ data: 'Hi there!' });
-}
-sendRequest('Send this!', function (response) {
-    console.log(response);
-    return true;
-});
+var result = generateError("An Error occurred!", 500);
+console.log(result);
+//해당 함수는 리턴이 없고 넘어간(throw)에러가 스크립트와 충돌함으로 스크립트가 멈춤.
+console.log("Test");
