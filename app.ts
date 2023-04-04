@@ -4,6 +4,9 @@ function add(n1: number, n2: number) {
   
   function PrintResult(num: number): void {
     //void 와 undefined 차이점.
+    //자바스크립트에서는 반환타입이 없어서 이런 상황에 대한 명칭은 없지만
+    //타입스크립트는 void타입을 가지고 있다.
+
   
     console.log(num);
   }
