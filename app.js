@@ -10,6 +10,11 @@ function PrintResult(num) {
     console.log(num);
     // return;
 }
+function addAndHandle(n1, n2, cb) {
+    var result = n1 + n2;
+    var n23 = cb(result);
+    console.log(n23);
+}
 PrintResult(add(10, 20));
 console.log(add(20, 30));
 console.log(PrintResult(add(20, 30))); // return 값이 없는 void 형을 반환하는 함수는 consolo.log -> undefined
@@ -18,6 +23,26 @@ var someValue; //undefined타입 유효한 타입으로 존재
 var combineValues;
 var isdd = true;
 combineValues = add;
-combineValues = PrintResult;
-//combineValues = 4; //함수 타입이라는 것을 명시하지 않으면 런타임 에러 발생.
+//combineValues = 4; 
+//함수 타입이라는 것을 명시하지 않으면 런타임 에러 발생.
+//combineValues = PrintResult;
+//함수 타입으로 정의 되어있어서 컴파일 상 오류가 발생하지 않는다.
+//그러나 매개변수에 차이가 있어 제대로 작동하지 않음.
+//(a:number, b:number)=> number 함수타입을 정확히 명시하는 것이 좋다.
 console.log(combineValues(3, 3));
+var n21 = 23;
+addAndHandle(10, 20, function (result) {
+    console.log(23);
+    return "sdaf";
+});
+//콜백 함수는 자신이 전달되는 인수가 반환 값을 기대하지 않는 경우에도 값을 반환할 수 있음.
+var testFunction;
+var n1 = 23;
+function sendRequest(data, cb) {
+    // ... sending a request with "data"
+    return cb({ data: 'Hi there!' });
+}
+sendRequest('Send this!', function (response) {
+    console.log(response);
+    return true;
+});
