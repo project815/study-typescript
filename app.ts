@@ -1,3 +1,3 @@
 const userName2 = 'Max';
 
-console.log(userName);
+console.log(userName2);
