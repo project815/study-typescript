@@ -1,3 +1,4 @@
-"use strict";
-const userName2 = 'Max';
-console.log(userName2);
+var button = document.querySelector('button');
+button === null || button === void 0 ? void 0 : button.addEventListener('click', function () {
+    console.log("Clicked!!");
+});
