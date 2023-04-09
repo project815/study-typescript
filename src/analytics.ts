@@ -1,1 +1,1 @@
-console.log("TypeScript is Good");
+// console.log("TypeScript is Good");
