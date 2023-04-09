@@ -119,12 +119,14 @@
     // "analytics.dev.ts", //dev.ts로 끝나는 모든 파일 컴파일 X
     // "*.dev.ts", //dev.ts가 포함된 모든 파일 컴파일 X
     // "**/*.dev.ts", //모든 폴더에  dev.ts제외
-    "./Chapter1",
-    "node_modules" // default 컴파일 X
+    "node_modules", // default 컴파일 X
+    "Code"
   ],
 
-  // "include": [ //컴파일 포함 해당 파일 이외는 컴파일 X
-  //   // "app.ts",
-  //   // "analytics.ts" 
-  // ]
+  "include": [ //컴파일 포함 해당 파일 이외는 컴파일 X
+  "src"
+  // "/" 
+  // "app.ts",
+    // "analytics.ts" 
+  ]
 }
