@@ -34,11 +34,32 @@ const add = (a:number, b:number) => a+b;
 
 const printOutput: (a:number|string) =>void = output => console.log(output);
 
+printOutput(add(5, 2));
+
 const button = document.querySelector('button');
 
 if(button)
 {
     button.addEventListener('click', event =>console.log(event));
+
+    // button.addEventListener('click', () => console.log('asdf'));
 }
 
-printOutput(add(5, 2));
+const hobbies = ['Sports', 'Cooking'];
+const activeHobbies = ['Hiking', ...hobbies];
+
+// activeHobbies.push(hobbies); //에러
+
+activeHobbies.push(hobbies[0], hobbies[1]);
+
+activeHobbies.push(...hobbies);//전개연산자 스프레드, hobbies에 있는 배열 목록 배열 요소 추출
+
+const person = {
+    name : 'max',
+    age:30
+};
+
+// const copiedPerson = person; // 메모리에 있는 person 객체에 해당하는 포인터를 copiedPerson상수로 복사하는 것.
+
+const copiedPerson = {...person}; // 모든 요소 추출, 키-값추출 포인터뿐만 아니라 원본 객체의 완벽한 복사본도 만들 수 있다.
+
