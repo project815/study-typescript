@@ -1,6 +1,6 @@
 const userName = 'Max';
 
-console.log(userName);    
+console.log(userName);
 // userName = 'Maxs'; //상수는 새로운 값 할당이 불가능.
 
 let age = 30;
@@ -63,3 +63,31 @@ const person = {
 
 const copiedPerson = {...person}; // 모든 요소 추출, 키-값추출 포인터뿐만 아니라 원본 객체의 완벽한 복사본도 만들 수 있다.
 
+//https://yangheat.tistory.com/54
+
+
+const minus = (...numbers:number[]) => { //나머지  매개변수
+                                    
+    // let result = 0;
+    //number요소 활용하는 방법
+    // 1. for()
+    // 2. reduce
+    return numbers.reduce((curResult, curValue )=>{
+        return curResult - curValue;
+    }, 0);
+};
+
+const minusNumbers = minus(5,4,3,22);
+
+console.log(minusNumbers);
+
+
+//튜플타입으로 배열의 타입이 정해져있다면 무한정 인수를 늘리는 것을 불가능하다.
+const multi = (...numbers: [number, number, number, number]) =>{
+    return numbers.reduce((curResult, curValue) =>
+    {
+        return curResult * curValue;
+    })
+}
+
+console.log(multi(3, 4, 5, 3));
