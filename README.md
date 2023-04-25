@@ -6,5 +6,3 @@ Branch List
 main - 타입 관련 내용
 
 ts2 - class
-
-ts3 - Project1
