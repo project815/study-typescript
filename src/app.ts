@@ -3,9 +3,7 @@ class Department{
     // private name:string;
     private empolyee:string[] = [];
 
-    constructor(private id:string, public name:string) {
-        // this.id=
-        // this.name = n;
+    constructor(protected readonly id:string, public name:string) {
     }
 
     describle(this: Department) {
@@ -17,6 +15,7 @@ class Department{
     }
     public addEmployee(empolyee:string)
     {
+        // this.id = "ss";//읽기 전용!!
         this.empolyee.push(empolyee); 
     }
 
@@ -27,16 +26,49 @@ class Department{
     }
 }
 
-const accunting = new Department('d1','?');
-accunting.describle();
+class ITDepartment extends  Department{
+    admins:string[];
+    constructor(id:string, admins:string[]){
+        super(id, 'IT');
+        this.admins = admins; 
+        //private admins:string 약식 처리 가능,, super을 먼저 쓰고 this를 할당해야 한다.
+    }
 
+    printInfo()
+    {
+        console.log('Department :' + this.id + " " + this.name);
+    }
+}
+
+class AccountingDepartment extends  Department{
+    constructor(id:string, private report:string[]){
+        super(id, 'Accounting');
+        //private admins:string 약식 처리 가능,, super을 먼저 쓰고 this를 할당해야 한다.
+    }
+    addReport(text:string)
+    {
+        this.report.push(text);
+    }
+    printReport()
+    {
+        console.log(this);
+    }
+}
+
+const it = new ITDepartment('d1', ['Max']);
+const accunting = new AccountingDepartment('d2',['Steve'])
+
+it.printInfo();
 // console.log('Department : (${this.id}) : ${}'accunting);
 
-accunting.addEmployee('Max');
-accunting.addEmployee('Max');
-accunting.addEmployee('Manu');
-accunting.addEmployee('Manu');
+it.addEmployee('Max');
+it.addEmployee('Max');
+it.addEmployee('Manu');
+it.addEmployee('Manu');
 
+it.describle();
+accunting.addEmployee('asdf');
+accunting.printReport();
 
 // accunting.printEmployeeInfomation();
 // const accuntingCopy = { name : name, descride : accunting.describle};
